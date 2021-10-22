@@ -22,7 +22,7 @@ def main():
 
     # input
     user1_str = input("Enter the number to round off: ")
-    user2_str = input("How many decimals do you want to round off: ")
+    user2_str = input("How many decimal places do you want to round off: ")
     print("")
 
     try:
