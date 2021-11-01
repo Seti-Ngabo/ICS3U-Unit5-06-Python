@@ -6,38 +6,35 @@
 #   with user input
 
 
-def round_off(answer, point):
-    # This function is about rounding number
+def round_off(final_sum, decimal_points):
+    # This function rounds off the number
+    first_sum = final_sum[0] * 10 ** decimal_points
+    first_sum = int(first_sum + 0.5)
+    first_sum = first_sum / (10 ** decimal_points)
 
-    # process
-    first_sum = answer * 10 ** point + 0.5
-    second_sum = int(first_sum)
-    final_sum = second_sum / 10 ** point
-
-    return final_sum
+    final_sum[0] = first_sum
 
 
 def main():
-    # This function just call other functions
-
-    # input
-    user1_str = input("Enter the number to round off: ")
-    user2_str = input("How many decimal places do you want to round off: ")
-    print("")
+    # This function accepts input
+    final_sum = []
 
     try:
-        user1_int = float(user1_str)
-        user2_int = float(user2_str)
+        # input
+        user_input = input("Enter the number to round off: ")
+        user_input = float(user_input)
+        decimal_points = input("How many decimal places do you want to round off: ")
+        decimal_points = int(decimal_points)
 
-        # call functions
-        rounded_off = round_off(answer=user1_int, point=user2_int)
+        final_sum.append(user_input)
+
+        round_off(final_sum, decimal_points)
 
         # output
-        print("The rounded number is {}".format(rounded_off))
+        print("The rounded number is {}".format(final_sum[0]))
 
-    except Exception:
-        # output
-        print("Invalid input, try again.")
+    except (Exception):
+        print("\nInvalid input, try again.")
 
     print("\nDone.")
 
